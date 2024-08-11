@@ -5,7 +5,7 @@ import { api, HydrateClient } from "~/trpc/server";
 import styles from "./index.module.css";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
+  const hello = await api.post.hello.useQuery({ text: "from tRPC" });
 
   void api.post.getLatest.prefetch();
 
